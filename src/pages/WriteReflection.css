@@ -1,0 +1,160 @@
+.write-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 28px clamp(20px, 4vw, 48px) 72px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.write-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: min(1120px, 100%);
+  margin: 0 auto 28px;
+}
+
+.write-layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.write-layout h1 {
+  margin-bottom: 20px;
+  font-family: var(--heading);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.4px;
+}
+
+.write-editor {
+  width: 100%;
+  min-height: 180px;
+  padding: 0;
+  border: 0;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: var(--ink);
+  font: 16px/1.55 var(--sans);
+}
+
+.write-editor:focus {
+  outline: none;
+}
+
+.write-editor:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.write-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.write-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #b5b5b5;
+  cursor: pointer;
+}
+
+.write-tool svg {
+  width: 26px;
+  height: 26px;
+}
+
+.write-tool:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.write-layout h2 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.write-layout ol {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.write-upload {
+  display: flex;
+  justify-content: center;
+}
+
+.write-button__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.write-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.write-shape--circle {
+  top: 150px;
+  left: -150px;
+  width: 300px;
+  height: 300px;
+}
+
+.write-shape--triangle {
+  top: 180px;
+  right: clamp(8px, 3vw, 48px);
+  width: 120px;
+  height: 130px;
+}
+
+@media (max-width: 700px) {
+  .write-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .write-page .button--wide {
+    width: 100%;
+  }
+
+  .write-page .card {
+    padding: 24px 18px;
+  }
+
+  .write-shape--circle {
+    top: 220px;
+    left: -90px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .write-shape--triangle {
+    top: 96px;
+    width: 72px;
+    height: 78px;
+  }
+}

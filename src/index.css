@@ -1,0 +1,39 @@
+:root {
+  --yellow: #fed265;
+  --ink: #111111;
+  --blue: #3b82f6;
+  --red: #e94744;
+  --card: #ffffff;
+  --sans: "Segoe UI", Arial, sans-serif;
+  --heading: "Arial Black", "Segoe UI", Arial, sans-serif;
+  color-scheme: light;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font-family: inherit;
+}

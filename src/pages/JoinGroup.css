@@ -1,0 +1,119 @@
+.join-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 88px clamp(20px, 5vw, 64px) 170px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.join-layout {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.join-intro h1 {
+  font-family: var(--heading);
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.4px;
+}
+
+.join-intro p {
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.join-form {
+  margin-top: 0;
+}
+
+.join-intro {
+  margin-bottom: 72px;
+}
+
+.join-form__fields {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 28px;
+  align-items: end;
+}
+
+.join-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.join-form__link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.join-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.join-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.join-shape--triangle {
+  top: 64px;
+  right: clamp(16px, 4vw, 56px);
+  width: 108px;
+  height: 116px;
+}
+
+.join-shape--circle {
+  right: -70px;
+  bottom: -150px;
+  width: 280px;
+  height: 280px;
+}
+
+@media (max-width: 700px) {
+  .join-page {
+    padding-top: 32px;
+  }
+
+  .join-intro {
+    margin-bottom: 36px;
+    padding-right: 76px;
+  }
+
+  .join-form__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .join-form__footer {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 28px;
+  }
+
+  .join-shape--triangle {
+    top: 20px;
+    width: 72px;
+    height: 78px;
+  }
+
+  .join-shape--circle {
+    width: 180px;
+    height: 180px;
+    right: -50px;
+    bottom: -60px;
+  }
+
+  .join-page .card {
+    padding: 24px 18px;
+  }
+}
