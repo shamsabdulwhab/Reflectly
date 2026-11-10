@@ -5,7 +5,7 @@ import WriteReflection from './pages/WriteReflection.jsx'
 import AIGuidance from './pages/AIGuidance.jsx'
 import DiscussionBoard from './pages/DiscussionBoard.jsx'
 import ReflectionPOC from './ReflectionPOC.jsx'
-import Test from './pages/test.jsx'
+import Test from './pages/Test.jsx'
 
 
 
