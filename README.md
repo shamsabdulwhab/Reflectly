@@ -1,41 +1,77 @@
 # Reflectly
 
-Reflectly is a group reflection tool for students. A team can join a group, write a reflection about their work together, review guided questions, and open a discussion board.
+Reflectly is a group reflection app for students. It helps students reflect on their teamwork, share their experiences, and discuss how they can improve as a group.
 
-The app is built with React and Vite. React Router moves between the pages. Shared information, such as the uploaded reflections, is kept with `useState` in `App` and passed to the pages that need it through props.
+Students can join a group, write their reflections, use guided questions, and view reflections on a discussion board.
 
-## Pages
+The application is built using **React, Vite, and React Router**.
 
-| Address | What the student does |
-|---|---|
-| `/` | Enter a name and a group code, then continue to the writing page. |
-| `/write` | Write a reflection, use the guided questions, and upload the text. |
-| `/guidance` | Read prompts that help the student think about a team experience. |
-| `/board` | See the uploaded reflections together with starter discussion notes. Students can vote on the notes. |
-| `/reflection-poc` | A small experiment that saves reflections inside one page. |
-| `/test` | A small experiment that compares the text being typed with the text saved on Upload. |
+## Links
 
-## Passing a reflection to the Discussion Board
+- **Live website:** https://splendid-entremet-341234.netlify.app/
+- **GitHub:** https://github.com/shamsabdulwhab/Reflectly
 
-The Write page stores the textarea text in `useState`. Upload sends that sentence to `App` through the `onUpload` prop. `App` keeps every uploaded sentence in `textReflections` and passes the same list to the Discussion Board as `savedReflections`.
+## Main Features
 
-The list remains while the app is open. Refreshing the browser clears it, because it is not stored in the browser or a database.
+**1. Join Group**
 
-## Future improvements
+Students can enter their name and group code to join a group and continue to the reflection page.
 
-- Save reflections so they remain after a refresh. `localStorage` can keep them in the browser. A database such as Firebase can share them with the rest of the group.
-- Store the name and group code from the join page, and check that the group code belongs to a real group.
-- Connect the guidance prompts to the text the student is writing, so the answers can be brought back to the Write page.
-- Let students vote on an uploaded reflection in the same way they vote on the starter notes.
-- Show reflections from every student in the group on one Discussion Board, instead of only the reflections saved in the current browser session.
+**2. Write Reflection**
 
-## Run the app
+Students can write about their teamwork and use guided questions to help them reflect. After writing, they can upload their reflection.
 
-From the Reflectly folder:
+**3. AI Guidance**
 
-```powershell
+This page provides questions to help students think more deeply about their experiences and what they could improve.
+
+**4. Discussion Board**
+
+Students can view uploaded reflections and discussion notes. They can also vote on the existing discussion notes.
+
+## How It Works
+
+We used React Router to navigate between the different pages.
+
+For the reflection feature, we used `useState` to manage the text students write.
+
+When a student uploads a reflection, it is sent to `App.jsx` using props. The reflection is then saved in a state array and passed to the Discussion Board, where it can be displayed.
+
+Currently, reflections are only saved temporarily. If the page is refreshed, the uploaded reflections disappear because they are not connected to a database.
+
+## Testing and Experiments
+
+Before implementing the reflection feature in the application, I created two small experiments:
+
+- **Reflection POC:** To understand how to collect, save, and display reflections using `useState`.
+- **Test page:** To experiment with the difference between the text students are typing and the text they upload.
+
+
+
+## Future Improvements
+
+There are still some features we would like to improve:
+
+- Use Firebase to save reflections and share them between group members.
+- Keep reflections available after refreshing the page.
+- Connect the group code to a real group.
+- Improve the guidance feature to support students while writing.
+- Allow students to vote on uploaded reflections.
+
+## How to Run the Project
+
+First, clone the repository and open the project folder.
+
+Install the dependencies:
+
+```bash
 npm install
+```
+
+Start the application:
+
+```bash
 npm run dev
 ```
 
-Open the local address printed by Vite, usually `http://localhost:5173/`.
+Open the local link shown in the terminal, usually `http://localhost:5173/`.
