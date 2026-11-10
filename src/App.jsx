@@ -5,12 +5,14 @@ import WriteReflection from './pages/WriteReflection.jsx'
 import AIGuidance from './pages/AIGuidance.jsx'
 import DiscussionBoard from './pages/DiscussionBoard.jsx'
 import ReflectionPOC from './ReflectionPOC.jsx'
+import Test from './pages/test.jsx'
+
+
 
 function App() {
-  const [uploadedReflections, setUploadedReflections] = useState([])
-
+  const [textReflections, setTextReflections] = useState([])
   function uploadReflection(text) {
-    setUploadedReflections((currentReflections) => [...currentReflections, text])
+    setTextReflections((currentReflections) => [...currentReflections, text])
   }
 
   return (
@@ -20,7 +22,8 @@ function App() {
         <Route path="/write" element={<WriteReflection onUpload={uploadReflection} />} />
         <Route path="/reflection-poc" element={<ReflectionPOC />} />
         <Route path="/guidance" element={<AIGuidance />} />
-        <Route path="/board" element={<DiscussionBoard savedReflections={uploadedReflections} />} />
+        <Route path="/board" element={<DiscussionBoard savedReflections={textReflections} />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
   )

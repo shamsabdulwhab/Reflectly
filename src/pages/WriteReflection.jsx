@@ -3,12 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button.jsx'
 import Card from '../components/Card.jsx'
 import './WriteReflection.css'
-
-// const startingReflection = `This month, our group worked well together when building the raised beds. We shared ideas, helped each other with difficult tasks, and felt proud when we saw the results. I enjoyed working alongside my teammates and learning from them.
-
-// However, our responsibilities were not always clear. Sometimes, a few people took on more work while others waited for instructions. I also found it difficult to speak up when I felt the workload was uneven because I did not want to create tension.
-
-// I learned that being a good teammate means both helping others and communicating honestly. Next month, I would like us to divide tasks clearly, check that everyone understands their role, and make time for each person to share concerns. This could help us work more fairly and feel more involved.`
+import CircleShape from '../components/CircleShape.jsx'
+import TriangleShape from '../components/TriangleShape.jsx'
 
 const guidedQuestions = [
   'What happened?',
@@ -18,14 +14,18 @@ const guidedQuestions = [
 
 function WriteReflection({ onUpload }) {
   const navigate = useNavigate()
-  const [reflection, setReflection] = useState('')
+  const [text, setText] = useState('')
+
   const editorRef = useRef(null)
 
+   // I created a function to handle the Upload button:
   function uploadReflection() {
-    const trimmedText = reflection.trim()
+    const trimmedText = text.trim()
     if (trimmedText === '') return
 
     onUpload(trimmedText)
+    setText('')
+    //then leaves the Write page and shows the Discussion Board.
     navigate('/board')
   }
 
@@ -36,22 +36,12 @@ function WriteReflection({ onUpload }) {
     }
     box.style.height = 'auto'
     box.style.height = `${box.scrollHeight}px`
-  }, [reflection])
-
+  }, [text])
+  
   return (
     <main className="write-page">
-      <svg className="write-shape write-shape--circle" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="46" fill="#3b82f6" stroke="#111111" strokeWidth="3" />
-      </svg>
-      <svg className="write-shape write-shape--triangle" viewBox="0 0 100 108" aria-hidden="true">
-        <polygon
-          points="8,54 96,8 96,100"
-          fill="#e94744"
-          stroke="#111111"
-          strokeWidth="5"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <CircleShape className="write-shape write-shape--circle" />
+      <TriangleShape className="write-shape write-shape--triangle" />
 
       <div className="write-toolbar">
         <Button variant="red" type="button" onClick={() => navigate('/guidance')}>
@@ -74,8 +64,8 @@ function WriteReflection({ onUpload }) {
           <textarea
             ref={editorRef}
             className="write-editor"
-            value={reflection}
-            onChange={(event) => setReflection(event.target.value)}
+            value={text}
+            onChange={(event) => setText(event.target.value)}
             aria-label="Write the reflection"
           />
           <div className="write-tools">
