@@ -34,8 +34,7 @@ const startingNotes = [
     votes: 1,
   },
 ]
-
-function DiscussionBoard() {
+function DiscussionBoard({ savedReflections = [] }) {
   const navigate = useNavigate()
   const [notes, setNotes] = useState(startingNotes)
 
@@ -121,6 +120,12 @@ function DiscussionBoard() {
               />
             </svg>
           </button>
+          <p>Saved reflections</p>
+          <ul>
+            {savedReflections.map((reflection, index) => (
+              <li key={index}>{reflection}</li>
+            ))}
+          </ul>
         </article>
       </div>
     </main>

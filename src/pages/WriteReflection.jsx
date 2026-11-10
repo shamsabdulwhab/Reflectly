@@ -4,11 +4,11 @@ import Button from '../components/Button.jsx'
 import Card from '../components/Card.jsx'
 import './WriteReflection.css'
 
-const startingReflection = `This month, our group worked well together when building the raised beds. We shared ideas, helped each other with difficult tasks, and felt proud when we saw the results. I enjoyed working alongside my teammates and learning from them.
+// const startingReflection = `This month, our group worked well together when building the raised beds. We shared ideas, helped each other with difficult tasks, and felt proud when we saw the results. I enjoyed working alongside my teammates and learning from them.
 
-However, our responsibilities were not always clear. Sometimes, a few people took on more work while others waited for instructions. I also found it difficult to speak up when I felt the workload was uneven because I did not want to create tension.
+// However, our responsibilities were not always clear. Sometimes, a few people took on more work while others waited for instructions. I also found it difficult to speak up when I felt the workload was uneven because I did not want to create tension.
 
-I learned that being a good teammate means both helping others and communicating honestly. Next month, I would like us to divide tasks clearly, check that everyone understands their role, and make time for each person to share concerns. This could help us work more fairly and feel more involved.`
+// I learned that being a good teammate means both helping others and communicating honestly. Next month, I would like us to divide tasks clearly, check that everyone understands their role, and make time for each person to share concerns. This could help us work more fairly and feel more involved.`
 
 const guidedQuestions = [
   'What happened?',
@@ -16,10 +16,18 @@ const guidedQuestions = [
   'What could we change?',
 ]
 
-function WriteReflection() {
+function WriteReflection({ onUpload }) {
   const navigate = useNavigate()
-  const [reflection, setReflection] = useState(startingReflection)
+  const [reflection, setReflection] = useState('')
   const editorRef = useRef(null)
+
+  function uploadReflection() {
+    const trimmedText = reflection.trim()
+    if (trimmedText === '') return
+
+    onUpload(trimmedText)
+    navigate('/board')
+  }
 
   useEffect(() => {
     const box = editorRef.current
@@ -96,7 +104,7 @@ function WriteReflection() {
         </Card>
 
         <div className="write-upload">
-          <Button wide type="button" onClick={() => navigate('/board')}>
+          <Button wide type="button" onClick={uploadReflection}>
             Upload my reflection
             <svg className="write-button__icon" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" strokeWidth="2" />
