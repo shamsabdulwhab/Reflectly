@@ -2,7 +2,7 @@
 
 Reflectly is a group reflection app for students. It helps students reflect on their teamwork, share their experiences, and discuss how they can improve as a group.
 
-Students can join a group, write their reflections, use guided questions, and view reflections on a discussion board.
+Students can join a group, write their reflections, use guided questions, view reflections on a discussion board, and edit a team agreement.
 
 The application is built using **React, Vite, and React Router**.
 
@@ -27,7 +27,15 @@ This page provides questions to help students think more deeply about their expe
 
 **4. Discussion Board**
 
-Students can view uploaded reflections and discussion notes. They can also vote on the existing discussion notes.
+Students can view uploaded reflections and discussion notes. They can also vote on the notes. The note with the most votes is shown at the bottom.
+
+**5. Bridge**
+
+The arrow on the voted note opens the bridge. Month 3 shows the current agreement. Month 4 and Month 5 take the student back to the home page.
+
+**6. Team Agreement**
+
+Students can read and edit the Month 3 agreement lines, save them, and return to the bridge with **See agreements**.
 
 ## How It Works
 
@@ -35,9 +43,11 @@ We used React Router to navigate between the different pages.
 
 For the reflection feature, we used `useState` to manage the text students write.
 
-When a student uploads a reflection, it is sent to `App.jsx` using props. The reflection is then saved in a state array and passed to the Discussion Board, where it can be displayed.
+When a student uploads a reflection, it is sent to `App.jsx` using props. The reflection is then placed inside one of the existing discussion cards.
 
-Currently, reflections are only saved temporarily. If the page is refreshed, the uploaded reflections disappear because they are not connected to a database.
+The agreement lines are also kept in `App.jsx` with `useState`. Students can edit a line, and that change stays while they move between the agreement page and the bridge.
+
+Currently, reflections and agreements are only saved temporarily. If the page is refreshed, they disappear because they are not connected to a database.
 
 ## Testing and Experiments
 
@@ -52,11 +62,10 @@ Before implementing the reflection feature in the application, I created two sma
 
 There are still some features we would like to improve:
 
-- Use Firebase to save reflections and share them between group members.
-- Keep reflections available after refreshing the page.
+- Use Firebase to save reflections and agreements, and share them between group members.
+- Keep reflections and agreements available after refreshing the page.
 - Connect the group code to a real group.
 - Improve the guidance feature to support students while writing.
-- Allow students to vote on uploaded reflections.
 
 ## How to Run the Project
 
