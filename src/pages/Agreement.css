@@ -1,0 +1,133 @@
+.agreement-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 88px 24px 72px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.agreement-layout {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.agreement-card {
+  position: relative;
+  padding: 28px 28px 8px;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.agreement-card::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: translateX(-50%);
+}
+
+.agreement-card h1 {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.agreement-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agreement-card li {
+  border-top: 1px solid #d9d9d9;
+}
+
+.agreement-card input {
+  width: 100%;
+  padding: 16px 4px 12px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.agreement-card input:focus {
+  outline: none;
+  background: #fff6d8;
+}
+
+.agreement-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.agreement-actions .button {
+  flex: 1;
+  min-height: 52px;
+  font-size: 16px;
+}
+
+.agreement-save__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.agreement-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.agreement-shape--circle {
+  top: 150px;
+  left: -130px;
+  width: 280px;
+  height: 280px;
+}
+
+.agreement-shape--triangle {
+  top: 36px;
+  right: -36px;
+  width: 170px;
+  height: 180px;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 700px) {
+  .agreement-page {
+    padding-top: 56px;
+  }
+
+  .agreement-card {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .agreement-shape--circle {
+    top: 220px;
+    left: -150px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .agreement-actions {
+    flex-direction: column;
+  }
+
+  .agreement-shape--triangle {
+    top: 12px;
+    width: 96px;
+    height: 104px;
+  }
+}

@@ -34,9 +34,24 @@ const startingNotes = [
     votes: 1,
   },
 ]
+function createNotes(reflections) {
+  return startingNotes.map((note, index) => {
+    const uploadedText = reflections[index]
+
+    if (!uploadedText) {
+      return note
+    }
+
+    return {
+      ...note,
+      text: uploadedText,
+    }
+  })
+}
+
 function DiscussionBoard({ savedReflections = [] }) {
   const navigate = useNavigate()
-  const [notes, setNotes] = useState(startingNotes)
+  const [notes, setNotes] = useState(() => createNotes(savedReflections))
 
   const chosenNote = notes.reduce((best, note) => {
     if (note.votes > best.votes) {
@@ -106,8 +121,8 @@ function DiscussionBoard({ savedReflections = [] }) {
           <button
             className="chosen-note__next"
             type="button"
-            aria-label="Start again"
-            onClick={() => navigate('/')}
+            aria-label="Open the bridge"
+            onClick={() => navigate('/agreement', { state: { agreement: chosenNote.topic } })}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -120,12 +135,6 @@ function DiscussionBoard({ savedReflections = [] }) {
               />
             </svg>
           </button>
-          <p>Saved reflections</p>
-          <ul>
-            {savedReflections.map((reflection, index) => (
-              <li key={index}>{reflection}</li>
-            ))}
-          </ul>
         </article>
       </div>
     </main>
