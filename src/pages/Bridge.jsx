@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import Button from '../components/Button.jsx'
 import './Bridge.css'
 
 const months = [
@@ -13,6 +15,7 @@ function Bridge() {
   const navigate = useNavigate()
   const location = useLocation()
   const agreement = location.state?.agreement || 'Name task owners'
+  const [selectedMonth, setSelectedMonth] = useState(3)
 
   return (
     <main className="bridge-page">
@@ -53,14 +56,19 @@ function Bridge() {
               )
             }
 
+            const isSelected = selectedMonth === month.id
+
             return (
-              <article
-                className={`month month--${month.state}`}
+              <button
+                className={`month month--${month.state}${isSelected ? ' month--selected' : ''}`}
                 key={month.id}
+                type="button"
+                aria-pressed={isSelected}
                 aria-current={month.state === 'current' ? 'true' : undefined}
+                onClick={() => setSelectedMonth(month.id)}
               >
                 {monthBody}
-              </article>
+              </button>
             )
           })}
         </div>
@@ -73,7 +81,8 @@ function Bridge() {
           <i />
         </div>
 
-        <div className="bridge-link">
+        <div className="bridge-agreements">
+        <div className={`bridge-link bridge-link--month-${selectedMonth}`}>
           <span className="bridge-stem" aria-hidden="true" />
           <button
             className="agreement"
@@ -92,7 +101,15 @@ function Bridge() {
             </div>
           </button>
         </div>
+        </div>
       </section>
+
+      <div className="bridge-nav">
+        <Button onClick={() => navigate(-1)}>Back</Button>
+        <Button variant="red" onClick={() => navigate('/')}>
+          Cancel
+        </Button>
+      </div>
     </main>
   )
 }
