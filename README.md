@@ -8,7 +8,7 @@ The application is built using **React, Vite, and React Router**.
 
 ## Links
 
-- **Live website:** https://splendid-entremet-341234.netlify.app/
+- **Live website:** https://reflectlyl.netlify.app/
 - **GitHub:** https://github.com/shamsabdulwhab/Reflectly
 
 ## Main Features
